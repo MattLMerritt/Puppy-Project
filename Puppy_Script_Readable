@@ -1,0 +1,31 @@
+#puppy Sender Script
+
+#database
+set theListOfValues to {"photo1.png", "photo2.png", "photo3.png", "photo4.png", "photo5.png", "photo6.png", "photo7.png", "photo8.png", "photo9.png", "photo10.png", "photo11.png", "photo12.png", "photo13.png", "photo14.png", "photo15.png", "photo16.png", "photo17.png", "photo18.png", "photo19.png", "photo20.png", "photo21.png", "photo22.png", "photo23.png"}
+
+
+tell application "Messages"
+	
+	#repeats through list of puppie photo titles to send
+	repeat with theCurrentValue in theListOfValues
+		
+		
+		#find the the puppy photo
+		set filePath to (path to desktop as text) & "puppyPhotos:" & theCurrentValue
+		
+		
+		#Setting up Messages
+		set targetService to (1st service whose service type = iMessage)
+		set targetBuddy to buddy "16612894711" of targetService #change the number to recipient
+		
+		
+		#sending the file of the pupy
+		send file filePath to targetBuddy
+		
+		
+		#amount of delay till next puppy(in secs)
+		delay 1800
+		
+	end repeat
+end tell
+end
