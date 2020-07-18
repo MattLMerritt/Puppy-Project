@@ -3,6 +3,9 @@
 #database
 set theListOfValues to {"photo1.png", "photo2.png", "photo3.png", "photo4.png", "photo5.png", "photo6.png", "photo7.png", "photo8.png", "photo9.png", "photo10.png", "photo11.png", "photo12.png", "photo13.png", "photo14.png", "photo15.png", "photo16.png", "photo17.png", "photo18.png", "photo19.png", "photo20.png", "photo21.png", "photo22.png", "photo23.png"}
 
+#user input
+set phoneNumber to display dialog "What phone number would you like to send to?" default answer ""
+set contactNumber to text returned of phoneNumber
 
 tell application "Messages"
 	
@@ -16,7 +19,7 @@ tell application "Messages"
 		
 		#Setting up Messages
 		set targetService to (1st service whose service type = iMessage)
-		set targetBuddy to buddy "16612894711" of targetService #change the number to recipient
+		set targetBuddy to buddy contactNumber of targetService #change the number to recipient
 		
 		
 		#sending the file of the pupy
